@@ -33,58 +33,49 @@ class _MyHomePageState extends State<MyHomePage> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xbd000000),
         appBar: AppBar(
-          backgroundColor: Colors.green,
+          backgroundColor: Color(0x95000000),
           automaticallyImplyLeading: false,
-          title: Text(
-            'WhatsApp',
-            style: TextStyle(fontSize: 25),
-          ),
+          title: Text('WhatsApp',
+              style: TextStyle(fontSize: 25, color: Colors.white)),
           leading: GestureDetector(
             onTap: () {/* Write listener code here */},
-            child: Icon(
-              Icons.whatsapp,
-              size: 20, // add custom icons also
-            ),
+            child: Icon(Icons.whatsapp,
+                size: 20, color: Colors.white // add custom icons also
+                ),
           ),
           actions: <Widget>[
             Padding(
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
                   onTap: () {},
-                  child: Icon(
-                    Icons.search,
-                    size: 22.0,
-                  ),
+                  child: Icon(Icons.search, size: 22.0, color: Colors.white),
                 )),
             SizedBox(width: 20),
             Padding(
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
                   onTap: () {},
-                  child: Icon(
-                    Icons.more_vert,
-                    size: 25,
-                  ),
+                  child: Icon(Icons.more_vert, size: 25, color: Colors.white),
                 )),
           ],
           bottom: TabBar(
             indicatorColor: Colors.green,
             indicatorWeight: 3,
             tabs: [
-              Tab(icon: Icon(Icons.camera_alt)),
+              Tab(icon: Icon(Icons.camera_alt, color: Colors.white)),
               Text(
                 'Chats',
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 20, color: Colors.white),
               ),
               Text(
                 'Status',
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 20, color: Colors.white),
               ),
               Text(
                 'Calls',
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 20, color: Colors.white),
               ),
             ],
           ),
@@ -103,15 +94,23 @@ class _MyHomePageState extends State<MyHomePage> {
             itemCount: 15,
             separatorBuilder: (context, index) {
               return Divider(
-                color: Colors.green,
+                color: Colors.black,
                 thickness: 1.0,
               );
             },
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
-                leading: const Icon(Icons.contacts),
-                trailing: const Icon(Icons.favorite),
-                title: Text("Friend ${index + 1}"),
+                leading: const Icon(Icons.sentiment_satisfied_alt,
+                    color: Colors.white),
+                trailing: const Icon(Icons.favorite, color: Colors.white),
+                title: Text(
+                  "Friend ${index + 1}",
+                  style: TextStyle(color: Colors.white),
+                ),
+                subtitle: Text(
+                  "Heyy",
+                  style: TextStyle(color: Colors.white),
+                ),
               );
             }),
       ),
