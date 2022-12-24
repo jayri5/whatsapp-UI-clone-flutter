@@ -10,9 +10,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'WhatsApp',
-      theme: ThemeData(
-        primarySwatch: Colors.grey,
-      ),
+      theme: ThemeData.light().copyWith(
+          scrollbarTheme: ScrollbarThemeData().copyWith(
+        thumbColor: MaterialStateProperty.all(Colors.white),
+      )),
       home: MyHomePage(title: 'WhatsApp'),
     );
   }
@@ -61,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 )),
           ],
           bottom: TabBar(
-            indicatorColor: Colors.green,
+            indicatorColor: Color(0xff026b06),
             indicatorWeight: 3,
             tabs: [
               Tab(icon: Icon(Icons.camera_alt, color: Colors.white)),
@@ -84,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // Floating action button implemented with the
         // auto scroll function to the bottom of list
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Color(0xff026b06),
           onPressed: () {},
           tooltip: "Contacts",
           child: Icon(Icons.chat),
@@ -117,45 +119,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
-
-//flutlab default code from here
-/*
-import 'package:flutter/material.dart';
-void main() => runApp(MyApp());
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text('Hey, This is Jayri!'),
-      ),
-    );
-  }
-}
-*/
-
