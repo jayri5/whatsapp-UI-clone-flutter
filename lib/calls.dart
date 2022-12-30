@@ -1,38 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'calls.dart';
+import 'main.dart';
 import 'status.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'WhatsApp',
-      theme: ThemeData.light().copyWith(
-          scrollbarTheme: ScrollbarThemeData().copyWith(
-        thumbColor: MaterialStateProperty.all(Colors.white),
-      )),
-      home: MyHomePage(title: 'WhatsApp'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  ScrollController listScrollController = ScrollController();
-
-  @override
+class calls extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
@@ -74,7 +45,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   "Chats",
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => MyApp()));
+                },
               )),
               Tab(
                   child: TextButton(
@@ -97,21 +71,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   "Calls",
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => calls()));
-                },
+                onPressed: () {},
               )),
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Color(0xff026b06),
-          onPressed: () {},
-          tooltip: "Contacts",
-          child: Icon(Icons.chat),
-        ),
-
         // ListView with 100 list items
         body: ListView.separated(
             itemCount: 15,
@@ -125,13 +89,13 @@ class _MyHomePageState extends State<MyHomePage> {
               return ListTile(
                 leading: const Icon(Icons.sentiment_satisfied_alt,
                     color: Colors.white),
-                trailing: const Icon(Icons.favorite, color: Colors.white),
+                trailing: const Icon(Icons.phone, color: Colors.white),
                 title: Text(
-                  "Friend ${index + 1}",
+                  "Call ${index + 1}",
                   style: TextStyle(color: Colors.white),
                 ),
                 subtitle: Text(
-                  "Heyy",
+                  "Today, 11:15AM",
                   style: TextStyle(color: Colors.white),
                 ),
               );

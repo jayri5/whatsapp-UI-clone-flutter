@@ -1,38 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'main.dart';
 import 'calls.dart';
-import 'status.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'WhatsApp',
-      theme: ThemeData.light().copyWith(
-          scrollbarTheme: ScrollbarThemeData().copyWith(
-        thumbColor: MaterialStateProperty.all(Colors.white),
-      )),
-      home: MyHomePage(title: 'WhatsApp'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  ScrollController listScrollController = ScrollController();
-
-  @override
+class status extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
@@ -74,7 +45,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   "Chats",
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => MyApp()));
+                },
               )),
               Tab(
                   child: TextButton(
@@ -82,10 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   "Status",
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => status()));
-                },
+                onPressed: () {},
               )),
               //Text(
               //'Status',
@@ -105,37 +76,31 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Color(0xff026b06),
-          onPressed: () {},
-          tooltip: "Contacts",
-          child: Icon(Icons.chat),
-        ),
-
-        // ListView with 100 list items
-        body: ListView.separated(
-            itemCount: 15,
-            separatorBuilder: (context, index) {
-              return Divider(
-                color: Colors.black,
-                thickness: 1.0,
-              );
-            },
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                leading: const Icon(Icons.sentiment_satisfied_alt,
-                    color: Colors.white),
-                trailing: const Icon(Icons.favorite, color: Colors.white),
-                title: Text(
-                  "Friend ${index + 1}",
-                  style: TextStyle(color: Colors.white),
-                ),
-                subtitle: Text(
-                  "Heyy",
-                  style: TextStyle(color: Colors.white),
-                ),
-              );
-            }),
+        body: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Flexible(
+                flex: 1,
+                fit: FlexFit.loose,
+                child:
+                    Icon(Icons.add_a_photo, size: 28, color: Color(0xffffffff)),
+              ),
+              Flexible(
+                flex: 2,
+                fit: FlexFit.tight,
+                child: Column(children: [
+                  Text(
+                    'My Status',
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                  ),
+                  Text(
+                    'Tap to add status update',
+                    style: TextStyle(fontSize: 12, color: Colors.white),
+                  )
+                ]),
+              ),
+            ]),
       ),
     );
   }
