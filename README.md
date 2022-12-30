@@ -1,2 +1,2 @@
-Replicated WhatsApp UI using Flutter.
-Will keep making changes.
+Replicated WhatsApp UI using Flutter. The clone has all the functionalities of chats, status and calls.
+
