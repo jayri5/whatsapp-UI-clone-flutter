@@ -1,4 +1,5 @@
 Replicated WhatsApp UI using Flutter. The clone has all the functionalities of chats, status and calls.
+The UI looks as below -
 
 
 ![whatsapp3](https://user-images.githubusercontent.com/46220519/218321879-0064fadf-7efc-4c2d-8add-6c56d59d1aeb.png)
